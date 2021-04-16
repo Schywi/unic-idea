@@ -44,21 +44,21 @@ const apiRoute = nextConnect({
 apiRoute.use(upload.array('theFiles'));
 
 apiRoute.post((req, res) => {
-  //handleUnlink(req);
-  response.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate');
+ 
+  
    
 
   res.status(200).json({ data: 'sucess' });
 });
 
 apiRoute.get((req, res) => {
-  response.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate');
+ 
   const data = handleReaddirSync();
   res.status(200).json({ data: data });
 });
 
 apiRoute.put((req, res) => {
-  response.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate');
+ 
   handleUnlink();
   res.status(200).json({ data: 'data was deleted' });
 });
